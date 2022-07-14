@@ -1,5 +1,5 @@
 # TerrariaProj
-A simple terraria clone.
+A simple terraria clone made in C++ using OpenGL.
 
 
 
