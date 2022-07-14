@@ -7,6 +7,15 @@ Chunk::Chunk(glm::ivec2 ChunkPos_)
 
 
 }
+void Chunk::NoiseInit()
+{
+	
+
+		
+
+
+}
+
 void Chunk::Draw(Shader & shader)
 {
 	if(isMeshReady.try_acquire())
@@ -15,12 +24,28 @@ void Chunk::Draw(Shader & shader)
 }
 void Chunk::Generate()
 {
+	NoiseInit();
+
+	FastNoise::SmartNode<FastNoise::Simplex> fnSimplex;
+	FastNoise::SmartNode<FastNoise::FractalFBm>  fnFractal;
+	FastNoise::SmartNode<> fnGenerator;
+	fnSimplex = FastNoise::New<FastNoise::Simplex>();
+	fnFractal = FastNoise::New<FastNoise::FractalFBm>();
+
+	fnFractal->SetSource(fnSimplex);
+	fnFractal->SetOctaveCount(5);
+	fnGenerator = FastNoise::NewFromEncodedNodeTree("DQAFAAAAAAAAQAgAAAAAAD8AAAAAAA==");
 
 	std::cout << "Generating chunk nr:" << ChunkPos.x << std::endl;
-
+	float columnsNoise[16];
+	fnGenerator->GenUniformGrid2D(columnsNoise, ChunkPos.x * ChunkSize, 0, ChunkSize, 1,0.02, map_seed);
 	for (int i = 0; i < ChunkSize; i++)
 	{
-		int column_height = (int)(30 + ((1 + MainNoise.noise((ChunkPos.x * ChunkSize + i)*0.05)) / 2)* 50);
+		//int column_height = (int)(30 + ((1 + MainNoise.noise((ChunkPos.x * ChunkSize + i)*0.05)) / 2)* 50);
+
+
+		int column_height = ((columnsNoise[i]+1)/2)  * 50 +32;
+
 
 		column_heights[i] = column_height;
 		for (int k = ChunkHeight; k >= 0; k--)

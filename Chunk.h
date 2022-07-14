@@ -30,12 +30,15 @@ public:
 	  std::unordered_map<glm::vec2, int> block_map; 
 	  std::binary_semaphore isMeshReady{ 0 };
 
+	  /*FastNoise::SmartNode<FastNoise::Simplex> fnSimplex;
+	  FastNoise::SmartNode<FastNoise::FractalFBm>  fnFractal;
+	  FastNoise::SmartNode<> fnGenerator;*/
 	static std::vector<Chunk*> *CHUNKS;
 
 	ChunkMesh mesh;
 	int column_heights[15];
 	Chunk(glm::ivec2 ChunkPos_);
-
+	void NoiseInit();
 	void Draw(Shader& shader);
 	void Generate();
 	void GenerateFeatures();

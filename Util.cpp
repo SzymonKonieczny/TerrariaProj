@@ -9,12 +9,17 @@ Util* Util::GetInstance()
 }
 float Util::random(int min, int max)
 {
-	return gen() % (max - min) + min;
+
+	std::uniform_int_distribution<> dist(min,max);
+	return dist(gen);
+	//return gen() % (max - min) + min;
 }
 Util::Util():gen(rd())
 {
 
 }
+
+
 
 void Util::LoadBlocks()
 {
