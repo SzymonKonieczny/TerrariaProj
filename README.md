@@ -4,12 +4,19 @@ A simple terraria clone.
 
 
 Use A and D to move.
+
 Hold shift to speed up. 
+
 Space to fly.
+
 F to disable gravity.
-0-9 select inventory slot
-LMB to place, RMB to break
-E prints out the inventory content
+
+0-9 select inventory slot.
+
+LMB to place, RMB to break.
+
+E prints out the inventory content.
+
 
 
 
