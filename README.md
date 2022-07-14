@@ -22,3 +22,6 @@ E prints out the inventory content.
 
 ![image](https://user-images.githubusercontent.com/72419029/179016879-b83529bd-ff99-4ec2-b5d1-d27e8aed0e0f.png)
 ![image](https://user-images.githubusercontent.com/72419029/179017283-452f84c1-0c03-4118-aefa-6f46036e2fbd.png)
+
+FastNoise library used:
+https://github.com/Auburn/FastNoise2
