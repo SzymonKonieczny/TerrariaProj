@@ -1,6 +1,9 @@
 # TerrariaProj
 A simple terraria clone made in C++ using OpenGL.
 
+Since I wanted to learn more about the grahpics pipeline, and what making visual software without an engine looks like, I picked OpenGL for this project. 
+The game is very simple, you can fly around a world generated based on a user input seed, break tiles, and later place them. I used libararies such as GLAD, GLFW and FastNoise
+
 
 
 Use A and D to move.
